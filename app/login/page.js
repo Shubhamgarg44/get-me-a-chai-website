@@ -1,4 +1,6 @@
+"use client";
 import React from 'react'
+import { useSession, signIn, signOut } from "next-auth/react"
 
 const login = () => {
   return (
@@ -74,7 +76,7 @@ const login = () => {
 
 
 <button
-    class="flex w-64 items-center text-white border border-gray-300 rounded-lg shadow-md max-w-xs px-6 py-2 text-sm font-medium  hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
+    class="flex w-64 items-center text-white border border-gray-300 rounded-lg shadow-md max-w-xs px-6 py-2 text-sm font-medium  hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" >
     <svg class="h-6 w-6 mr-2" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"
         viewBox="0 0 48 48" version="1.1">
         <g id="Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -92,7 +94,7 @@ const login = () => {
 </button>
 
 
-<button
+<button onClick={() => {signIn("github")}}
     class="flex w-64 items-center text-white border border-gray-300 rounded-lg shadow-md max-w-xs px-6 py-2 text-sm font-medium  hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
     <svg class="h-6 w-6 mr-2" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"
         viewBox="0 0 73 73" version="1.1">
