@@ -1,7 +1,7 @@
 "use client"
 import React from 'react'
 import { useSession, signIn, signOut } from "next-auth/react"
-import { useRouter } from 'next/navigation'
+import { redirect, useRouter } from 'next/navigation'
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -13,7 +13,8 @@ const page = () => {
   }
 
   if (status === "unauthenticated") {
-    return <div>Access Denied</div>;
+    return redirect('/');
+    // <div>Access Denied</div>;
   }
     if (!session) {
         const router = useRouter();
@@ -31,7 +32,7 @@ const page = () => {
       <div className="profile-banner relative text-transparent">
         <div className="relative shrink-0">
           <Image
-            src="https://shreethemes.in/techwind/layouts/assets/images/blog/bg.jpg"
+            src="/cover.jpg"
             alt="Profile Banner"
             width={1920}
             height={320}
@@ -51,7 +52,7 @@ const page = () => {
                 <div>
                   <div className="relative h-28 w-28 mx-auto">
                     <Image
-                      src="https://shreethemes.in/techwind/layouts/assets/images/client/05.jpg"
+                      src="/cat.jpg"
                       className="rounded-full shadow dark:shadow-gray-800 ring-4 ring-slate-50 dark:ring-slate-800"
                       alt="Profile"
                       width={112}
